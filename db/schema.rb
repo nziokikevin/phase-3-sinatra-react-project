@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2022_09_07_121225) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
-    t.integer "license_no"
-    t.integer "identity_card_no"
+    t.string "license_no"
+    t.string "identity_card_no"
     t.integer "vehicle_id"
     t.integer "route_id"
   end
