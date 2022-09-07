@@ -132,6 +132,16 @@ class ApplicationController < Sinatra::Base
     create_route.to_json
   end
 
+  #PATCH requests
+  patch '/drivers/:id' do
+    update_driver = Driver.find(params[:id])
+    update_driver.update(
+      name: params[:name],
+      license_no: params[:license_no]
+    )
+    
+  end
+
   # DELETE section
   delete '/sacco/:id' do
     delete_sacco = Sacco.find(params[:id])
