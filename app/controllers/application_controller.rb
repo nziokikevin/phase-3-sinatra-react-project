@@ -132,7 +132,36 @@ class ApplicationController < Sinatra::Base
     create_route.to_json
   end
 
-  
+  # DELETE section
+  delete '/sacco/:id' do
+    delete_sacco = Sacco.find(params[:id])
+    delete_sacco.destroy
+    delete_sacco.to_json
+  end
+
+  delete '/vehicles/:id' do
+    delete_vehicle = Vehicle.find(params[:id])
+    delete_sacco.destroy
+    delete_sacco.to_json
+  end
+
+  delete '/owners/:id' do
+    delete_owner = Owner.find(params[:id])
+    delete_owner.destroy
+    delete_owner.to_json
+  end
+
+  delete '/drivers/:id' do
+    delete_driver = Driver.find(params[:id])
+    delete_driver.destroy
+    delete_driver.to_json
+  end
+
+  delete '/routes/:id' do
+    delete_route = Route.find(params[:id])
+    delete_route.destroy
+    delete_route.to_json
+  end
 
 
 end
