@@ -93,5 +93,46 @@ class ApplicationController < Sinatra::Base
     include: {vehicle: {only: [:plate_no, :model], include: {driver: {only: [:name]}}}})
   end
 
+  # POST section
+  post '/saccos' do
+    create_sacco = Sacco.create(
+      name: params[:name]
+    )
+    create_sacco.to_json
+  end
+
+  post '/vehicles' do
+    create_vehicle = Vehicle.create(
+      plate_no: params[:plate_no],
+      model: params[:model]
+    )
+    create_vehicle.to_json
+  end
+
+  post '/owners' do
+    create_owner = Owner.create(
+      name: params[:name]
+    )
+    create_owner.to_json
+  end
+
+  post '/drivers' do
+    create_driver = Driver.create(
+      name: params[:name],
+      license_no: params[:license_no],
+      identity_card_no: params[:identity_card_no]
+    )
+    create_driver.to_json
+  end
+
+  post '/routes' do
+    create_route = Route.create(
+      name: params[:name]
+    )
+    create_route.to_json
+  end
+
+  
+
 
 end
