@@ -62,23 +62,23 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/saccos/:id' do
-    single_sacco = Student.find(params[:id])
+    single_sacco = Sacco.find(params[:id])
     single_sacco.to_json(only: [:name], 
-      include: { vehicle: {only: [plate_no], include: {route: {only: [name]}}}
+      include: { vehicles: {only: [:plate_no], include: {routes: {only: [:name]}}}
     })
   end
 
   get '/vehicles/:id' do
     single_vehicle = Vehicle.find(params[:id])
     single_vehicle.to_json(only: [:plate_no, :model], 
-      include: { owner: {only: [:name], include: {sacco: {only: [:name]}}}
+      include: { owner: {only: [:name], include: {saccos: {only: [:name]}}}
     })
   end
 
   get '/owners/:id' do
     single_owner = Owner.find(params[:id])
     single_owner.to_json(only: [:name], 
-    include: {vehicle: {only: [:plate_no], include: {driver: {only: [:name]}}}})
+    include: {vehicles: {only: [:plate_no]}})
   end
 
   get '/drivers/:id' do
@@ -90,7 +90,7 @@ class ApplicationController < Sinatra::Base
   get '/routes/:id' do
     single_route = Route.find(params[:id])
     single_route.to_json(only: [:name],
-    include: {vehicle: {only: [:plate_no, :model], include: {driver: {only: [:name]}}}})
+    include: {vehicles: {only: [:plate_no, :model], include: {drivers: {only: [:name]}}}})
   end
 
   # POST section
@@ -143,7 +143,7 @@ class ApplicationController < Sinatra::Base
   end
 
   # DELETE section
-  delete '/sacco/:id' do
+  delete '/saccos/:id' do
     delete_sacco = Sacco.find(params[:id])
     delete_sacco.destroy
     delete_sacco.to_json

@@ -6,6 +6,7 @@ class CreateDrivers < ActiveRecord::Migration[6.1]
       t.string :identity_card_no
       t.integer :vehicle_id
       t.integer :route_id
+      t.integer :sacco_id
     end
   end
 end

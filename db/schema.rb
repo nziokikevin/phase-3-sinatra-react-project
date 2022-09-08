@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_121225) do
     t.string "identity_card_no"
     t.integer "vehicle_id"
     t.integer "route_id"
+    t.integer "sacco_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_121225) do
 
   create_table "saccos", force: :cascade do |t|
     t.string "name"
+    t.string "description"
   end
 
   create_table "vehicles", force: :cascade do |t|
