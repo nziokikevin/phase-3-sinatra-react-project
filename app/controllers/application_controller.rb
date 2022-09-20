@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
   # /routes/:id - 
 
 #GET section
-  get "/saccos" do
+  get '/saccos' do
     all_saccos = Sacco.all
     all_saccos.to_json
   end
