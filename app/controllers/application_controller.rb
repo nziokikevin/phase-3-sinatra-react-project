@@ -53,7 +53,7 @@ class ApplicationController < Sinatra::Base
 
   get '/drivers' do
     all_drivers = Driver.all
-    all_drivers.to_json
+    all_drivers.to_json(include: {vehicle: {only: [:plate_no]}})
   end
 
   get '/routes' do
@@ -96,7 +96,8 @@ class ApplicationController < Sinatra::Base
   # POST section
   post '/saccos' do
     create_sacco = Sacco.create(
-      name: params[:name]
+      name: params[:name],
+      description: params[:description]
     )
     create_sacco.to_json
   end

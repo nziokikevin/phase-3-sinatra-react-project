@@ -7,9 +7,9 @@ Sacco.create(name: "Embassava", description: "The best in Embakasi route")
 Sacco.create(name: "ROG", description: "We lead, others follow")
 Sacco.create(name: "Super Metro", description: "Taking over the city")
 Sacco.create(name: "Royal Swift", description: "We move swiftly")
-Sacco.create(name: "Kabuku", description: "Kamagero")
+Sacco.create(name: "Kabuku", description: "Zooeea hiyo sauti")
 Sacco.create(name: "Umowa", description: "Imara kama simba")
-Sacco.create(name: "Embassava Drips", description: "The Spirit of Africa")
+Sacco.create(name: "Embassava Drips", description: "Preepare!")
 
 # vehicles
 Vehicle.create(model: "Isuzu", plate_no: "KDA 001A", owner_id: rand(1..7), sacco_id: rand(1..7))
